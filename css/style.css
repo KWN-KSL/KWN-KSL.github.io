@@ -387,4 +387,10 @@ a:has(.outline-button) {
             width: auto
         }
     }
+
+    .outline-button {
+        height: 35px;
+        width: 150px;
+        font-size: 16px;
+    }
 }
