@@ -10,11 +10,23 @@
 
 <body>
 
-    <div class="navbar">
-        <span>Kewin Kisiel</span>
+    <div class="side-navigation left">
+        <a href="#home" class="nav-dot" data-label="Start"></a>
+        <a href="#skills" class="nav-dot" data-label="Umiejętności"></a>
+        <a href="#projects" class="nav-dot" data-label="Projekty"></a>
+        <a href="#certificates" class="nav-dot" data-label="Certyfikaty"></a>
+        <a href="#contact" class="nav-dot" data-label="Kontakt"></a>
     </div>
 
-    <div class="home section-snap" id="home">
+    <div class="side-navigation right">
+        <a href="#home" class="nav-dot" data-label="Start"></a>
+        <a href="#skills" class="nav-dot" data-label="Umiejętności"></a>
+        <a href="#projects" class="nav-dot" data-label="Projekty"></a>
+        <a href="#certificates" class="nav-dot" data-label="Certyfikaty"></a>
+        <a href="#contact" class="nav-dot" data-label="Kontakt"></a>
+    </div>
+
+    <div class="section home" id="home">
         <div class="side left">
             <div class="content">
                 <div class="title">
@@ -27,15 +39,15 @@
                     </span>
                 </div>
                 <div class="description">
-                    Jestem studentem II roku kierunku Automatyka, Robotyka i Cybernetyka na
+                    Jestem studentem III roku kierunku Automatyka, Robotyka i Cybernetyka na
                     Politechnice Gdańskiej. Fascynują mnie nowoczesne technologie, zarówno w obszarze IT, jak i automatyki
                     oraz robotyki. Aktywnie rozwijam swoje umiejętności techniczne poprzez realizację projektów
-                    akademickich i własnych. Obecnie poszukuję możliwości odbycia stażu, który pozwoli mi zdobyć pierwsze
-                    doświadczenie zawodowe oraz poszerzyć kompetencje praktyczne.
+                    akademickich i własnych. Obecnie poszukuję możliwości odbycia stażu, który pozwoli mi zdobyć pierwsze doświadczenie
+                    zawodowe oraz poszerzyć kompetencje praktyczne.
                 </div>
                 <div class="button-wrapper">
                     <a href="#contact"><button class="outline-button">Kontakt</button></a>
-                    <a href="./assets/Kewin_Kisiel_CV.pdf" download><button class="outline-button">Pobierz CV</button></a>
+                    <a href="./assets/Kewin_Kisiel_CV.pdf" target="_blank"><button class="outline-button">Zobacz CV</button></a>
                 </div>
             </div>
         </div>
@@ -44,14 +56,20 @@
         </div>
     </div>
 
-    <div class="skills section-snap" id="skills">
+    <div class="section skills" id="skills">
         <div class="content">
             <div class="title">Moje <span class="color">Umiejętności</span></div>
             <div class="description">
-                W trakcie studiów realizowałem projekty oraz ćwiczenia laboratoryjne, które pozwoliły mi zdobyć podstawowe
-                doświadczenie w programowaniu w C++ i Pythonie, tworzeniu stron internetowych (HTML, CSS, React) oraz
-                analizie i optymalizacji procesów w MATLAB-ie.
+                Jako student Automatyki, Robotyki i Cybernetyki zdobywam wszechstronne wykształcenie inżynierskie. 
+                Posiadam <strong>solidne podstawy programowania</strong> (C++, Python) oraz tworzenia aplikacji webowych.
+                <br><br>
+                Moja wiedza obejmuje również podstawy <strong>baz danych (SQL, PHP)</strong>, <strong>sterowania analogowego</strong>, 
+                <strong>sztucznej inteligencji</strong> oraz <strong>robotyki</strong> (w tym praktyczną obsługę robotów przemysłowych Mitsubishi i Kawasaki). 
+                <br><br>
+                Znam teoretyczne i praktyczne aspekty <strong>sieci komputerowych</strong>, techniki cyfrowej, 
+                elektroniki oraz przetwarzania sygnałów. Wiedzę tę stale pogłębiam, szukając możliwości jej wykorzystania w pracy projektowej.
             </div>
+            
             <div class="list">
                 <div class="item">
                     <img src="./img/python.svg" alt="Python" />
@@ -81,159 +99,174 @@
         </div>
     </div>
 
-    <div class="projects section-snap" id="projects">
+    <div class="section projects" id="projects">
         <div class="content">
             <div class="title">Moje <span class="color">Projekty</span></div>
             <div class="list">
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/react.svg" alt="React" />
-                        Gra Blackjack
+                    <div class="name"><img src="./img/react.svg" alt="" /> Gra Blackjack</div>
+                    <div class="project-desc">
+                        Interaktywna gra karciana stworzona w bibliotece React. Projekt obsługuje zarządzanie stanem gry, logikę rozdawania kart oraz dynamiczne przeliczanie punktacji w czasie rzeczywistym.
                     </div>
                     <div class="button-wrapper">
-                        <a href="./mp4/SpaceInvaders.mp4" target="_blank">
+                        <a href="https://blackjack-ten-bice.vercel.app/" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                ZAGRAJ
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Blackjack" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/python.svg" alt="" />
-                        Space Invaders
+                    <div class="name"><img src="./img/python.svg" alt="" /> Gra Space Invaders</div>
+                    <div class="project-desc">
+                        Klasyczna gra zręcznościowa napisana w Pythonie z użyciem biblioteki Pygame. Implementacja obejmuje programowanie obiektowe, wykrywanie kolizji oraz system fal przeciwników.
                     </div>
                     <div class="button-wrapper">
                         <a href="./mp4/SpaceInvaders.mp4" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                WIDEO
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Space-Invaders" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/python.svg" alt="" />
-                        Symulator Transmitancji
+                    <div class="name"><img src="./img/python.svg" alt="" /> Symulator Transmitancji</div>
+                    <div class="project-desc">
+                        Narzędzie do analizy układów sterowania. Program wizualizuje odpowiedź skokową i charakterystyki częstotliwościowe na podstawie wprowadzonych parametrów transmitancji operatorowej.
                     </div>
                     <div class="button-wrapper">
                         <a href="./mp4/Transmitancja.mp4" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                WIDEO
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Symulator-Transmitancji" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/cpp.svg" alt="" />
-                        Wykresy Giełdowe
+                    <div class="name"><img src="./img/cpp.svg" alt="" /> Wykresy Giełdowe</div>
+                    <div class="project-desc">
+                        Aplikacja w C++ służąca do wczytywania, parsowania i wizualizacji danych finansowych z plików CSV. Wykorzystuje zewnętrzne biblioteki do rysowania wykresów świecowych.
                     </div>
                     <div class="button-wrapper">
                         <a href="mp4/WykresyGieldowe.mp4" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                WIDEO
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Wykresy-Gieldowe" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/cpp.svg" alt="" />
-                        Gra Black Box
+                    <div class="name"><img src="./img/cpp.svg" alt="" /> Gra Black Box</div>
+                    <div class="project-desc">
+                        Gra logiczna zaimplementowana w C++, polegająca na dedukcji ukrytych elementów na planszy. Projekt skupia się na logice dwuwymiarowych tablic i algorytmach wyszukiwania.
                     </div>
                     <div class="button-wrapper">
                         <a href="./mp4/BlackBox.mp4" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                WIDEO
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Gra-Black-Box" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/cpp.svg" alt="" />
-                        Pasjans Klondike
+                    <div class="name"><img src="./img/cpp.svg" alt="" /> Pasjans Klondike</div>
+                    <div class="project-desc">
+                        Konsolowa implementacja popularnej gry karcianej. Projekt wymagał zastosowania struktur danych (stosy, listy) do zarządzania taliami kart.
                     </div>
                     <div class="button-wrapper">
                         <a href="./mp4/PasjansKlondike.mp4" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                WIDEO
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Gra-Pasjans-Klondike" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
-                <div class="item">
-                    <div class="name">
-                        <img src="./img/cpp.svg" alt="" />
-                        Budowa Drona
+                 <div class="item">
+                    <div class="name"><img src="./img/cpp.svg" alt="" /> Budowa Drona</div>
+                    <div class="project-desc">
+                        Projekt inżynierski obejmujący dobór komponentów, montaż oraz programowanie kontrolera lotu. Dron stabilizuje lot wykorzystując algorytmy PID.
                     </div>
                     <div class="button-wrapper">
                         <a href="./mp4/Dron.mp4" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                WIDEO
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Projekt4-Budowa-Drona" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
                 </div>
 
-                <div class="item">
-                    <div class="name">
-                        <img src="./img/cpp.svg" alt="" />
-                        Przetwarzanie Sygnałów
+                 <div class="item">
+                    <div class="name"><img src="./img/cpp.svg" alt="" /> Przetwarzanie Sygnałów</div>
+                    <div class="project-desc">
+                        Analiza sygnałów cyfrowych z wykorzystaniem transformaty Fouriera (FFT). Projekt obejmuje filtrowanie szumów oraz ekstrakcję cech sygnału.
                     </div>
                     <div class="button-wrapper">
-                        <a href="https://github.com/KWN-KSL/Projekt3-przetwarzanie-sygnalow/blob/master/raport/Projekt3-przetwarzanie-sygnalow.ipynb"
-                            target="_blank">
+                        <a href="https://github.com/KWN-KSL/Projekt3-przetwarzanie-sygnalow/blob/master/raport/Projekt3-przetwarzanie-sygnalow.ipynb" target="_blank">
                             <button class="outline-button">
-                                <img src="./img/play.svg" alt="" /> Zobacz
+                                <img src="./img/play.svg" alt="" style="filter: invert(39%) sepia(80%) saturate(2375%) hue-rotate(160deg) brightness(101%) contrast(101%);"> 
+                                NOTEBOOK
                             </button>
                         </a>
                         <a href="https://github.com/KWN-KSL/Projekt3-Przetwarzanie-Sygnalow" target="_blank">
                             <button class="black-button">
-                                <img src="./img/github.svg" alt="" /> Code
+                                <img src="./img/github.svg" alt=""> 
+                                GITHUB
                             </button>
                         </a>
                     </div>
@@ -243,43 +276,76 @@
         </div>
     </div>
 
-    <div class="certificates projects section-snap" id="certificates">
+    <div class="section certificates" id="certificates">
         <div class="content">
             <div class="title">Moje <span class="color">Certyfikaty</span></div>
             <div class="list">
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/nvidia.svg" alt="Nvidia" />
-                        Getting Started with Accelerated Computing in Modern CUDA C++
+                    <div class="cert-main">
+                        <div class="logo-section">
+                            <img src="./img/nvidia.svg" alt="Nvidia" />
+                        </div>
+                        <div class="info-section">
+                            <div class="course-name">Accelerated Computing in Modern CUDA C++</div>
+                            <div class="course-desc">
+                                Specjalistyczny kurs z zakresu programowania równoległego i High Performance Computing (HPC). 
+                                Obejmuje techniki zarządzania pamięcią GPU, optymalizację kerneli oraz wykorzystanie architektury CUDA do przyspieszania aplikacji C++.
+                            </div>
+                        </div>
                     </div>
-                    <div class="button-wrapper">
-                        <a href="#" target="_blank"> 
-                            <button class="outline-button">Zobacz Certyfikat</button>
+                    <div class="buttons">
+                        <a href="./assets/Kewin_Kisiel_cer1.pdf" target="_blank">
+                            <button class="outline-button">Certyfikat</button>
+                        </a>
+                        <a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-AC-04+V2" target="_blank">
+                            <button class="black-button">O kursie</button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/nvidia.svg" alt="Nvidia" />
-                        Getting Started with Deep Learning
+                    <div class="cert-main">
+                        <div class="logo-section">
+                            <img src="./img/nvidia.svg" alt="Nvidia" />
+                        </div>
+                        <div class="info-section">
+                            <div class="course-name">Getting Started with Deep Learning</div>
+                            <div class="course-desc">
+                                Kurs obejmujący fundamenty głębokiego uczenia (Deep Learning). Koncentruje się na budowie, trenowaniu 
+                                i wdrażaniu sieci neuronowych, ze szczególnym uwzględnieniem Computer Vision i klasyfikacji obrazów przy użyciu nowoczesnych frameworków.
+                            </div>
+                        </div>
                     </div>
-                    <div class="button-wrapper">
-                        <a href="#" target="_blank"> 
-                            <button class="outline-button">Zobacz Certyfikat</button>
+                    <div class="buttons">
+                        <a href="./assets/Kewin_Kisiel_cer2.pdf" target="_blank">
+                            <button class="outline-button">Certyfikat</button>
+                        </a>
+                        <a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-FX-01+V1" target="_blank">
+                            <button class="black-button">O kursie</button>
                         </a>
                     </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        <img src="./img/nvidia.svg" alt="Nvidia" />
-                        Getting Started with AI on Jetson Nano
+                    <div class="cert-main">
+                        <div class="logo-section">
+                            <img src="./img/nvidia.svg" alt="Nvidia" />
+                        </div>
+                        <div class="info-section">
+                            <div class="course-name">Getting Started with AI on Jetson Nano</div>
+                            <div class="course-desc">
+                                Praktyczny kurs wdrażania sztucznej inteligencji na urządzeniach brzegowych (Edge AI). 
+                                Obejmuje konfigurację środowiska Jetson Nano, pracę z kamerami oraz uruchamianie modeli inferencyjnych w czasie rzeczywistym (Real-time Inference).
+                            </div>
+                        </div>
                     </div>
-                    <div class="button-wrapper">
-                        <a href="#" target="_blank"> 
-                            <button class="outline-button">Zobacz Certyfikat</button>
+                    <div class="buttons">
+                        <a href="./assets/Kewin_Kisiel_cer3.pdf" target="_blank">
+                            <button class="outline-button">Certyfikat</button>
+                        </a>
+                        <a href="https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+S-RX-02+V2" target="_blank">
+                            <button class="black-button">O kursie</button>
                         </a>
                     </div>
                 </div>
@@ -288,33 +354,63 @@
         </div>
     </div>
 
-    <div class="contact section-snap" id="contact">
+    <div class="section contact" id="contact">
         <div class="content">
             <div class="title">Kontakt</div>
             <div class="list">
+                
                 <div class="item">
-                    <div class="name">
-                        Numer Telefonu <img src="./img/phone.svg" alt="" width="24" />
+                    <div class="icon-box">
+                        <img src="./img/phone.svg" alt="Phone" />
                     </div>
-                    <div class="data">+48 532 883 656</div>
+                    <div class="text-box">
+                        <span class="label">Numer Telefonu</span>
+                        <span class="value">+48 532 883 656</span>
+                    </div>
                 </div>
 
                 <div class="item">
-                    <div class="name">
-                        Adres E-mail <img src="./img/email.svg" alt="" width="24" />
+                    <div class="icon-box">
+                        <img src="./img/email.svg" alt="Email" />
                     </div>
-                    <div class="data">kisiel.kewin123@gmail.com</div>
+                    <div class="text-box">
+                        <span class="label">Adres E-mail</span>
+                        <span class="value">kisiel.kewin123@gmail.com</span>
+                    </div>
                 </div>
 
-                <a href="https://github.com/KWN-KSL" class="item" target="_blank">
-                    <div class="name">
-                        Konto GitHub <img src="./img/github.svg" alt="" width="24" />
+                <a href="https://github.com/KWN-KSL" target="_blank" class="item">
+                    <div class="icon-box">
+                        <img src="./img/github.svg" alt="GitHub" />
                     </div>
-                    <div class="data">@KWN-KSL</div>
+                    <div class="text-box">
+                        <span class="label">Konto GitHub</span>
+                        <span class="value">@KWN-KSL</span>
+                    </div>
                 </a>
+
             </div>
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dots = document.querySelectorAll('.nav-dot');
+
+            dots.forEach(dot => {
+                dot.addEventListener('mouseenter', () => {
+                    const target = dot.getAttribute('href');
+                    const sameTargets = document.querySelectorAll(`.nav-dot[href="${target}"]`);
+                    sameTargets.forEach(d => d.classList.add('hover-sync'));
+                });
+
+                dot.addEventListener('mouseleave', () => {
+                    const target = dot.getAttribute('href');
+                    const sameTargets = document.querySelectorAll(`.nav-dot[href="${target}"]`);
+                    sameTargets.forEach(d => d.classList.remove('hover-sync'));
+                });
+            });
+        });
+    </script>
 </body>
 </html>

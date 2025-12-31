@@ -1,11 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* --- GŁÓWNE USTAWIENIA I SCROLL SNAP --- */
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory; /* Włącza przyciąganie sekcji */
-    height: 100vh;
-    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 body {
@@ -15,21 +12,88 @@ body {
     background-color: #20242D;
     color: #fff;
     margin: 0 !important;
+    position: relative;
 }
 
-/* Klasa pomocnicza do sekcji, aby każda zajmowała min. cały ekran */
-.section-snap {
-    scroll-snap-align: start; /* Punkt przyciągania */
+.side-navigation {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.side-navigation.right {
+    right: 30px;
+}
+
+.side-navigation.left {
+    left: 30px;
+}
+
+.nav-dot {
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.nav-dot:hover,
+.nav-dot.active,
+.nav-dot.hover-sync {
+    background-color: #01EEFE;
+    transform: scale(1.4);
+    box-shadow: 0 0 10px rgba(1, 238, 254, 0.6);
+}
+
+.nav-dot::before {
+    content: attr(data-label);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #01EEFE;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+    white-space: nowrap;
+    border: 1px solid rgba(1, 238, 254, 0.3);
+}
+
+.side-navigation.right .nav-dot::before {
+    right: 35px;
+}
+
+.side-navigation.left .nav-dot::before {
+    left: 35px;
+}
+
+.nav-dot:hover::before,
+.nav-dot.hover-sync::before {
+    opacity: 1;
+}
+
+.section {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 20px 0; /* Trochę luzu góra/dół */
+    padding: 60px 0;
     box-sizing: border-box;
 }
 
-/* --- ANIMACJE --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -41,32 +105,20 @@ body {
     }
 }
 
-/* Elementy wewnątrz content będą animowane */
 .content {
     animation: fadeInUp 1s ease-out forwards;
-}
-
-/* --- NAVBAR --- */
-.navbar {
-    position: fixed; /* Przyklejony pasek */
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box;
-    background-color: rgba(32, 36, 45, 0.95); /* Lekko przezroczysty */
     width: 100%;
-    height: 50px;
-    border-bottom: 1px solid #323846;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* --- TYPOGRAFIA I ELEMENTY --- */
 .content .title {
     font-weight: 700;
     font-size: 48px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .content .title .color {
@@ -76,53 +128,63 @@ body {
 .content .description {
     width: 80%;
     max-width: 900px;
-    font-size: 20px;
-    font-weight: 200;
-    text-align: center; /* Wyśrodkowany opis wygląda lepiej w portfolio */
-    color: rgba(255, 255, 255, 0.6);
-    line-height: 1.5;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 40px;
 }
 
-.content .button-wrapper {
+a {
+    text-decoration: none;
+}
+
+.button-wrapper {
     display: flex;
     gap: 15px;
-    margin-top: 30px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* --- PRZYCISKI --- */
-a { text-decoration: none; }
-
-.outline-button, .black-button {
+.outline-button,
+.black-button {
     box-sizing: border-box;
     border-radius: 4px;
     font-family: "Poppins", sans-serif;
-    font-size: 16px; /* Lekko mniejsza czcionka dla bezpieczeństwa */
+    font-size: 14px;
     text-decoration: none;
     padding: 0 15px;
     height: 45px;
-    width: 180px; /* Nieco węższe */
+    min-width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     cursor: pointer;
     transition: 0.3s;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.outline-button img,
+.black-button img {
+    height: 20px;
+    width: auto;
+    margin: 0;
 }
 
 .outline-button {
-    border: #01EEFE 3px solid;
+    border: #01EEFE 2px solid;
     color: #01EEFE;
     background: none;
 }
 
 .outline-button:hover {
-    background: rgba(1, 238, 254, 0.2);
-    border-color: rgba(1, 238, 254, 0.2);
+    background: rgba(1, 238, 254, 0.1);
+    box-shadow: 0 0 15px rgba(1, 238, 254, 0.3);
     color: #fff;
-    transform: translateY(-2px); /* Efekt uniesienia */
 }
 
 .black-button {
@@ -134,19 +196,16 @@ a { text-decoration: none; }
 .black-button:hover {
     background-color: #333;
     border-color: #333;
-    transform: translateY(-2px);
 }
 
-/* --- SEKCJA HOME --- */
 .home {
-    /* Dziedziczy .section-snap, ale tutaj specyficzne ustawienia */
-    padding-top: 50px; /* Miejsce na navbar */
-    flex-direction: row; /* Dwie kolumny */
+    background-color: #20242D;
+    flex-direction: row;
+    padding: 0 5%;
 }
 
 .home .side {
     width: 50%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -155,31 +214,38 @@ a { text-decoration: none; }
 
 .home .side.left {
     align-items: flex-start;
-    padding-left: 10%;
     text-align: left;
 }
-.home .side.left .content { align-items: flex-start; }
-.home .side.left .title { text-align: left; }
-.home .side.left .description { text-align: left; }
 
-.home .side.right img {
-    max-width: 80%;
-    height: auto;
-    filter: drop-shadow(0 0 20px rgba(1, 238, 254, 0.1)); /* Poświata */
+.home .side.left .content {
+    align-items: flex-start;
 }
 
-/* --- SKILLS & CONTACT (JASNE TŁO) --- */
-.skills, .contact {
+.home .side.left .title {
+    text-align: left;
+}
+
+.home .side.left .description {
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
+}
+
+.home .side.right img {
+    max-width: 90%;
+    height: auto;
+    filter: drop-shadow(0 0 30px rgba(1, 238, 254, 0.15));
+}
+
+.skills {
     background-color: #323846;
 }
 
-.skills .list, .contact .list {
+.skills .list {
     display: flex;
-    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
-    max-width: 1200px;
+    gap: 30px;
 }
 
 .skills .item {
@@ -187,26 +253,30 @@ a { text-decoration: none; }
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 160px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
-    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
     transition: transform 0.3s;
 }
-.skills .item:hover { transform: scale(1.05); }
-.skills .item img { height: 50px; margin-bottom: 10px; }
 
-/* --- PROJECTS (CIEMNE TŁO) --- */
-.projects {
-    background-color: #20242D;
+.skills .item:hover {
+    transform: translateY(-5px);
 }
 
-.projects .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
+.skills .item img {
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.skills .item .name {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.projects {
+    background-color: #20242D;
 }
 
 .projects .list {
@@ -214,124 +284,234 @@ a { text-decoration: none; }
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
-    max-width: 1200px;
+    align-items: stretch; /* This ensures items in the same row are equal height */
 }
 
 .projects .item {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 300px;
-    padding: 15px; /* Dodano padding */
-    min-height: 100px; /* Zamiast sztywnego height */
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.2);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.45);
-    border-radius: 8px;
+    height: auto; /* Allow height to be determined by content, synced by flex stretch */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.projects .item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .projects .item .name {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     margin-bottom: 15px;
     text-align: center;
 }
-.projects .item .name img { height: 25px; }
 
-/* --- CERTYFIKATY (JASNE TŁO + POPRAWKI) --- */
-/* Nadpisujemy tło na jaśniejsze */
-.certificates {
-    background-color: #323846 !important; 
+.projects .item .name img {
+    height: 28px;
 }
 
-/* Specyficzne style dla kafelków certyfikatów */
-.certificates .item {
-    width: 350px !important; /* Szersze kafelki */
-    min-height: 160px !important; /* Wyższe kafelki */
-    padding: 25px 20px !important;
-    justify-content: space-between !important; /* Rozrzucenie treści góra/dół */
-}
-
-.certificates .item .name {
-    flex-direction: column; /* Ikona nad tekstem */
-    height: auto;
+.projects .item .project-desc {
+    font-size: 13px;
+    font-weight: 300;
     text-align: center;
-    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    width: 100%;
 }
 
-.certificates .item .name img {
-    height: 40px; /* Większe logo Nvidii */
-    margin-bottom: 10px;
+.projects .item .button-wrapper {
+    margin-top: auto; /* Pushes buttons to the bottom */
+    width: 100%;
 }
 
-.certificates .button-wrapper {
-    margin-top: auto; /* Przycisk zawsze na dole */
+.certificates {
+    background-color: #323846 !important;
 }
 
-/* --- CONTACT --- */
-.contact .item {
+.certificates .item {
+    width: 800px;
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    width: 280px;
-    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.contact .item .name {
-    font-size: 18px;
-    color: #01EEFE;
-    margin-bottom: 10px;
+.certificates .item .cert-main {
     display: flex;
+    flex-direction: row;
+    width: 100%;
     align-items: center;
-    gap: 10px;
+    gap: 30px;
 }
 
-.contact .item .data {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
+.certificates .item .logo-section {
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
 }
 
-/* --- RESPANSYWNOŚĆ (Mobile) --- */
+.certificates .item .logo-section img {
+    height: 80px;
+    width: auto;
+}
+
+.certificates .item .info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.certificates .item .course-name {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.certificates .item .course-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.certificates .item .buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+}
+
+.contact {
+    background-color: #20242D !important;
+}
+
+.contact .list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.contact .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px 30px;
+    border-radius: 50px;
+    width: 400px;
+    max-width: 90vw;
+    gap: 20px;
+    transition: 0.3s;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact .item:hover {
+    background-color: rgba(1, 238, 254, 0.1);
+    border: 1px solid rgba(1, 238, 254, 0.3);
+    transform: scale(1.02);
+}
+
+.contact .item .icon-box {
+    width: 50px;
+    height: 50px;
+    background-color: #20242D;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .item .icon-box img {
+    height: 25px;
+}
+
+.contact .item .text-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact .item .label {
+    font-size: 12px;
+    color: #01EEFE;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact .item .value {
+    font-size: 18px;
+    font-weight: 500;
+}
+
 @media only screen and (max-width: 1100px) {
+    .side-navigation {
+        display: none;
+    }
+
     .home {
         flex-direction: column;
-        height: auto;
-        min-height: 100vh;
-        padding-top: 80px;
+        padding-top: 50px;
     }
-    
-    .section-snap {
-        height: auto; /* Na mobilce wyłączamy sztywne wysokości */
-        min-height: auto;
-        padding: 50px 10px;
-    }
-    
-    /* Wyłączamy scroll snap na mobile, bo bywa irytujący przy dotyku */
-    html { scroll-snap-type: none; }
 
-    .home .side { width: 100%; }
-    .home .side.left { 
-        align-items: center; 
-        padding-left: 0; 
+    .home .side.left {
+        order: 2;
+        align-items: center;
         text-align: center;
-        order: 2; /* Tekst pod zdjęciem */
     }
-    .home .side.right { order: 1; margin-bottom: 30px; }
-    
-    .home .side.left .content { align-items: center; }
-    .home .side.left .title { text-align: center; font-size: 36px; }
-    .home .side.left .description { text-align: center; font-size: 16px; }
 
-    .projects .list, .skills .list { width: 100%; }
-    
+    .home .side.right {
+        order: 1;
+        margin-bottom: 30px;
+    }
+
     .certificates .item {
-        width: 90% !important; /* Na telefonie na całą szerokość */
+        padding: 20px;
+    }
+
+    .certificates .item .cert-main {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .certificates .item .info-section {
+        align-items: center;
+        text-align: center;
+    }
+
+    .certificates .item .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .certificates .item .buttons button {
+        width: 100%;
+    }
+
+    .contact .item {
+        width: 90%;
+        flex-direction: column;
+        border-radius: 15px;
+        padding: 20px;
     }
 }
