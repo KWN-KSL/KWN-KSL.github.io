@@ -284,7 +284,7 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
-    align-items: stretch; /* This ensures items in the same row are equal height */
+    align-items: stretch;
 }
 
 .projects .item {
@@ -292,7 +292,7 @@ a {
     flex-direction: column;
     align-items: center;
     width: 300px;
-    height: auto; /* Allow height to be determined by content, synced by flex stretch */
+    height: auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -329,7 +329,7 @@ a {
 }
 
 .projects .item .button-wrapper {
-    margin-top: auto; /* Pushes buttons to the bottom */
+    margin-top: auto;
     width: 100%;
 }
 
@@ -464,7 +464,7 @@ a {
     font-weight: 500;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 960px) {
     .side-navigation {
         display: none;
     }
@@ -472,6 +472,11 @@ a {
     .home {
         flex-direction: column;
         padding-top: 50px;
+    }
+
+    .home .side.right img {
+        max-width: 300px;
+        margin-top: 30px;
     }
 
     .home .side.left {
