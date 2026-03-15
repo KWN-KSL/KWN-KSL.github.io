@@ -416,6 +416,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const dots = document.querySelectorAll('.nav-dot');
+            const sections = document.querySelectorAll('.section');
 
             dots.forEach(dot => {
                 dot.addEventListener('mouseenter', () => {
@@ -429,6 +430,26 @@
                     const sameTargets = document.querySelectorAll(`.nav-dot[href="${target}"]`);
                     sameTargets.forEach(d => d.classList.remove('hover-sync'));
                 });
+            });
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const currentId = entry.target.getAttribute('id');
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        const activeDots = document.querySelectorAll(`.nav-dot[href="#${currentId}"]`);
+                        activeDots.forEach(dot => dot.classList.add('active'));
+                    }
+                });
+            }, observerOptions);
+            sections.forEach(section => {
+                observer.observe(section);
             });
         });
     </script>

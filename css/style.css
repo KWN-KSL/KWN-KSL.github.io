@@ -46,7 +46,12 @@ body {
 }
 
 .nav-dot:hover,
-.nav-dot.active,
+.nav-dot.active {
+    background-color: #01EEFE;
+    transform: scale(1.5);
+    transition: all 0.3s ease-in-out;
+}
+
 .nav-dot.hover-sync {
     background-color: #01EEFE;
     transform: scale(1.4);
@@ -472,6 +477,7 @@ a {
     .home {
         flex-direction: column;
         padding-top: 50px;
+        padding-bottom: 16px;
     }
 
     .home .side.right img {
@@ -519,4 +525,10 @@ a {
         border-radius: 15px;
         padding: 20px;
     }
+
+    .button-wrapper{
+        width: 100%;
+        justify-content: space-between;
+    }
+
 }
